@@ -20,9 +20,7 @@ public class USATax implements TaxCalculator {
     @Override
     public double taxAmount(double taxable) {
         double taxDue = 0.0;
-        if (taxable <= 20.00) {
-            taxDue = 0.0;
-        } else if (taxable > 20.00) {
+        if (taxable > 20.00) {
             taxDue = (taxable - 20.00) * 0.1;
         }
         return taxDue;

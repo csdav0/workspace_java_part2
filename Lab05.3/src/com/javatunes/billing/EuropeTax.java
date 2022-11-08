@@ -17,13 +17,18 @@ package com.javatunes.billing;
  */
 public class EuropeTax implements TaxCalculator {
 
+    private static final double VAT_RATE = 0.17;
+    private static final double LUXURY_TAX_RATE = 0.25;
+    private static final double LUXURY_TAX_THRESHOLD = 100.00;
+
     @Override
     public double taxAmount(double taxable) {
         double taxDue = 0.0;
-        if (taxable <= 100.00) {
-            taxDue = taxable * 0.17;
-        } else if (taxable > 100.00) {
-            taxDue = (taxable * 0.17) + (taxable - 100.00) * 0.25;
+        if (taxable <= LUXURY_TAX_THRESHOLD) {
+            taxDue = taxable * VAT_RATE;
+        } else {
+            double luxuryTax = (taxable - LUXURY_TAX_THRESHOLD) * LUXURY_TAX_RATE;
+            taxDue = (taxable * VAT_RATE) + luxuryTax;
         }
         return taxDue;
     }

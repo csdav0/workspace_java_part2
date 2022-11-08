@@ -102,8 +102,8 @@ public class OrderTaxTest {
     double actualTaxAmountUSA1 = order1.getTax();
 
     //order2 arrange & act
-    order2.setMyTaxReference("USATax");
     order2.processCart(cart2);
+    order2.setMyTaxReference("USATax");
     double actualTaxAmountUSA2 = order2.getTax();
 
     //asserts

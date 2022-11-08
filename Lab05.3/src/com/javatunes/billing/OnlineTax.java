@@ -15,8 +15,10 @@ package com.javatunes.billing;
  */
 public class OnlineTax implements TaxCalculator {
 
+    public static final double ONLINE_TAX_AMOUNT = 0.0;
+
     @Override
     public double taxAmount(double taxable) {
-        return 0.0;
+        return ONLINE_TAX_AMOUNT;
     }
 }
